@@ -33,7 +33,7 @@
       <div class="card-body">
         <table class="table table-striped task-table">
           <thead>
-            <th>本一覧</th>
+            <th>本一覧　　{{ '全部で'.count($books).'冊あります。' }}</th>
             <th>&nbsp;</th>
           </thead>
           <tbody>
@@ -48,6 +48,25 @@
         </table>
       </div>
     </div>
+  @else 
+  <div class="card-body">
+    <div class="card-body">
+      <table class="table table-striped task-table">
+        <thead>
+          <th>本一覧　　{{ '全部で'.count($books).'冊あります。' }}</th>
+          <th>&nbsp;</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="table-text">
+              <div>本が全くありません<div>
+            </td>
+          </tr>
+        </tbody>     
+      </table>
+    </div>
+  </div>
+    
   @endif  
 
 
