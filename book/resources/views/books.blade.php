@@ -28,6 +28,28 @@
     </form>
   </div>
 
+  @if (count($books) > 0)
+    <div class="card-body">
+      <div class="card-body">
+        <table class="table table-striped task-table">
+          <thead>
+            <th>本一覧</th>
+            <th>&nbsp;</th>
+          </thead>
+          <tbody>
+            @foreach($books as $book)
+            <tr>
+              <td class="table-text">
+                <div>{{ $book->item_name }}</div>
+              </td>
+            </tr>
+            @endforeach
+          </tbody>     
+        </table>
+      </div>
+    </div>
+  @endif  
+
 
 
 @endsection
