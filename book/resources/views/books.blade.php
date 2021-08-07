@@ -1,9 +1,8 @@
 @extends('layouts.app')
 @section('content')
   <div class="card-body">
-    <div class="card-title">
-      本のタイトル
-    </div>
+    
+    
 
     @include('common.errors')
 
@@ -12,8 +11,29 @@
       @csrf
 
       <div class="form-group">
+        <div class="card-title">
+          本のタイトル
+        </div>
         <div class="col-sm-6">
           <input type="text" name="item_name" class="form-control">
+        </div>
+        <div class="card-title">
+          冊数
+        </div>
+        <div class="col-sm-6">
+          <input type="integer" name="item_number" class="form-control">
+        </div>
+        <div class="card-title">
+          金額
+        </div>
+        <div class="col-sm-6">
+          <input type="price" name="item_amount" class="form-control">
+        </div>
+        <div class="card-title">
+          本公開日(年月日時分秒か年月日)
+        </div>
+        <div class="col-sm-6">
+          <input type="day" name="published" class="form-control">
         </div>
       </div>
 
@@ -33,7 +53,7 @@
       <div class="card-body">
         <table class="table table-striped task-table">
           <thead>
-            <th>本一覧　　{{ '全部で'.count($books).'冊あります。' }}</th>
+            <th>本一覧　　{{ '全部で'.count($books).'タイトルあります。' }}</th>
             <th>&nbsp;</th>
           </thead>
           <tbody>
@@ -41,6 +61,25 @@
             <tr>
               <td class="table-text">
                 <div>{{ $book->item_name }}</div>
+              </td>
+              <td>
+                <form action="{{ url('book/'.$book->id) }}" method="post">
+                  @csrf
+                  @method('DELETE')
+
+                  <button type="submit" class="btn btn-danger">
+                    削除
+                  </button>
+                </form>
+              </td>
+              <td>
+                <form action="{{ url('booksedit/'.$book->id) }}" method="POST">
+                  @csrf
+
+                  <button type="submit" class="btn btn-primary">
+                    更新
+                  </button>
+                </form>
               </td>
             </tr>
             @endforeach
@@ -53,7 +92,7 @@
     <div class="card-body">
       <table class="table table-striped task-table">
         <thead>
-          <th>本一覧　　{{ '全部で'.count($books).'冊あります。' }}</th>
+          <th>本一覧　　{{ '全部で'.count($books).'タイトルあります。' }}</th>
           <th>&nbsp;</th>
         </thead>
         <tbody>
