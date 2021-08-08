@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Book;
-use App\Http\Controllers\BooksController;
 use Illuminate\Http\Request;
 
 /*
@@ -33,4 +32,4 @@ Route::delete('/book/{book}','BooksController@delete' );
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home','HomeController@index' )->name('home');
