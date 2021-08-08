@@ -21,19 +21,19 @@
           冊数
         </div>
         <div class="col-sm-6">
-          <input type="integer" name="item_number" class="form-control">
+          <input type="integer" name="item_number" class="form-control" value="{{ $book->item_number }}">
         </div>
         <div class="card-title">
           金額
         </div>
         <div class="col-sm-6">
-          <input type="price" name="item_amount" class="form-control">
+          <input type="price" name="item_amount" class="form-control" value="{{ $book->item_amount }}">
         </div>
         <div class="card-title">
           本公開日(年月日時分秒か年月日)
         </div>
         <div class="col-sm-6">
-          <input type="day" name="published" class="form-control">
+          <input type="day" name="published" class="form-control" value="{{ $book->published }}">
         </div>
       </div>
 
