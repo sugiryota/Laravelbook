@@ -47,10 +47,16 @@
 
     </form>
   </div>
+  
 
   @if (count($books) > 0)
     <div class="card-body">
       <div class="card-body">
+        @if (session('message'))
+    <div class="alert alert-success">
+      {{ session('message') }}
+    </div>
+  @endif  
         <table class="table table-striped task-table">
           <thead>
             <th>本一覧　　{{ '全部で'.count($books).'タイトルあります。' }}</th>

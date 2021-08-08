@@ -56,7 +56,7 @@ class BooksController extends Controller{
         $books->item_amount = $request->item_amount;
         $books->published = $request->published;
         $books->save();
-        return redirect('/');
+        return redirect('/')->with('message','本登録が完了しました');
     }
     public function edit(Book $books){
         return view('booksedit',['book' => $books]);
