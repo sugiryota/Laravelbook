@@ -18,6 +18,12 @@
           <input type="text" name="item_name" class="form-control" value="{{ $book->item_name }}">
         </div>
         <div class="card-title">
+          画像
+        </div>
+        <div class="col-sm-6">
+          <input type="file" name="item_img" class="form" value="{{ $book->item_img }}">
+        </div>
+        <div class="card-title">
           冊数
         </div>
         <div class="col-sm-6">

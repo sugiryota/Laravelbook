@@ -6,7 +6,7 @@
 
     @include('common.errors')
 
-    <form action="{{ url('books') }}" method="POST"
+    <form  enctype="multipart/form-data" action="{{ url('books') }}" method="POST"
     class="form-horizontal">
       @csrf
 
@@ -16,6 +16,12 @@
         </div>
         <div class="col-sm-6">
           <input type="text" name="item_name" class="form-control">
+        </div>
+        <div class="card-title">
+          画像
+        </div>
+        <div class="col-sm-6">
+          <input type="file" name="item_img" class="form">
         </div>
         <div class="card-title">
           冊数
@@ -67,6 +73,7 @@
             <tr>
               <td class="table-text">
                 <div>{{ $book->item_name }}</div>
+                <div><img src= "/upload/{{ $book->item_img }}" width="100"> </div>
               </td>
               <td>
                 <form action="{{ url('book/'.$book->id) }}" method="post">
