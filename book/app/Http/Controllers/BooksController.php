@@ -58,7 +58,7 @@ class BooksController extends Controller{
         $file =$request ->file('item_img');
         if(!empty($file)){
             $filename=$file->getClientOriginalName();
-            $move =$file->move('../public/upload/',$filename);
+            $move =$file->move('../upload/',$filename);
         }else{
             $filename="";
         }
@@ -79,7 +79,7 @@ class BooksController extends Controller{
     }
     public function delete(Book $book){
         $book -> delete();
-    return redirect('/');
+    return redirect('/')->with('message','削除が完了しました');;
     }
     
 }
