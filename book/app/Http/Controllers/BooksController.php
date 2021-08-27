@@ -14,7 +14,7 @@ class BooksController extends Controller{
         $this->middleware('auth');
     }
 
-    public function index(){
+    public function index(){    
         $books = Book::where('user_id',Auth::user()->id)
         ->orderBy('created_at','asc')->paginate(3);
             return view('books',[
@@ -77,7 +77,7 @@ class BooksController extends Controller{
         $books = Book::where('user_id',Auth::user()->id)->find($book_id);
         return view('booksedit',['book' => $books]);
     }
-    public function delete(Book $book){
+    public function destroy(Book $book){
         $book -> delete();
     return redirect('/')->with('message','削除が完了しました');;
     }
